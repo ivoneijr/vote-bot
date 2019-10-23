@@ -63,7 +63,7 @@ const run = async () => {
 
     console.log("success: ", successCount);
     console.log("errors: ", errorCount);
-    console.log("time: ", new Date().getTime() - d1);
+    console.log("time: ", new Date().getTime() - d1, "\n\n");
 
     await browser.close();
   } catch (e) {}
@@ -76,7 +76,7 @@ function start(counter) {
       console.log(counter);
       run();
       run();
-      // run();
+      run();
       start(counter);
     }, 120000);
   }

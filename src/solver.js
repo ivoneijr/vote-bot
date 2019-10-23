@@ -7,12 +7,14 @@ const getResponse = async (key, url) => {
   return bestcaptchasolver
     .submit_recaptcha({
       page_url: url,
-      site_key: key
+      site_key: key,
+      v3_min_score: "0.3"
     })
     .then(id => {
       return bestcaptchasolver
         .retrieve_captcha(id)
         .then(data => {
+          console.log("solved =)");
           return data;
         })
         .catch(e => {
@@ -33,16 +35,16 @@ const checkBalance = async token => {
 };
 
 const report = async (token, id) => {
-  console.log("report", id);
+  console.log("reporting ", id);
   axios
     .post(`https://bcsapi.xyz/api/captcha/bad/${id}`, {
       access_token: token
     })
     .then(response => {
-      console.log("error reported");
+      console.log("captcha reported ok ", id);
     })
     .catch(error => {
-      console.log("error to report error");
+      console.log("error to report captcha");
     });
 };
 
