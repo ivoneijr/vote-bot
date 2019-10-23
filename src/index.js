@@ -76,7 +76,7 @@ function start(counter) {
       console.log(counter);
       run();
       run();
-      run();
+      // run();
       start(counter);
     }, 120000);
   }
