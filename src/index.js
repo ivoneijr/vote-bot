@@ -78,7 +78,7 @@ function start(counter) {
       run();
       // run();
       start(counter);
-    }, 160000);
+    }, 120000);
   }
 }
 start(0);
